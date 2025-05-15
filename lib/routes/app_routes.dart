@@ -1,6 +1,8 @@
 class AppRoutes {
-  static const String login = '/';
-  static const String home = '/home';
-  static const String cotacao = '/cotacao';
-  static const String transferencia = '/transferencia';
+  static const login = '/';
+  static const home = '/home';
+  static const cotacao = '/cotacao';
+  static const transferencia = '/transferencia';
+  static const monitoramento = '/monitoramento';
+  static const emprestimo = '/emprestimo';
 }

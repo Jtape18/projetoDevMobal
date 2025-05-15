@@ -8,9 +8,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Banco Digital')),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ElevatedButton.icon(
               icon: const Icon(Icons.attach_money),
@@ -19,18 +20,28 @@ class HomePage extends StatelessWidget {
                 Navigator.pushNamed(context, AppRoutes.cotacao);
               },
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             ElevatedButton.icon(
               icon: const Icon(Icons.send),
               label: const Text('Transferência'),
               onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  AppRoutes.transferencia,
-                  arguments: {
-                    'saldo': 1000.0, // exemplo de argumento
-                  },
-                );
+                Navigator.pushNamed(context, AppRoutes.transferencia);
+              },
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton.icon(
+              icon: const Icon(Icons.analytics),
+              label: const Text('Monitoramento'),
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.monitoramento);
+              },
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton.icon(
+              icon: const Icon(Icons.money),
+              label: const Text('Empréstimo'),
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.emprestimo);
               },
             ),
           ],
