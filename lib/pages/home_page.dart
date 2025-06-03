@@ -1,51 +1,50 @@
 import 'package:flutter/material.dart';
-import '../routes/app_routes.dart';
+import 'views/home_view.dart';
+import 'views/cotacao_view.dart';
+import 'views/perfil_view.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
+  final List<Widget> _screens = const [
+    HomeView(),
+    CotacaoView(),
+    PerfilView(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Banco Digital')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ElevatedButton.icon(
-              icon: const Icon(Icons.attach_money),
-              label: const Text('Cotação'),
-              onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.cotacao);
-              },
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton.icon(
-              icon: const Icon(Icons.send),
-              label: const Text('Transferência'),
-              onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.transferencia);
-              },
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton.icon(
-              icon: const Icon(Icons.analytics),
-              label: const Text('Monitoramento'),
-              onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.monitoramento);
-              },
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton.icon(
-              icon: const Icon(Icons.money),
-              label: const Text('Empréstimo'),
-              onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.emprestimo);
-              },
-            ),
-          ],
-        ),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _screens,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        selectedItemColor: Colors.deepPurple,
+        unselectedItemColor: Colors.grey,
+        onTap: (index) => setState(() => _currentIndex = index),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Início',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.attach_money),
+            label: 'Cotação',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: 'Perfil',
+          ),
+        ],
       ),
     );
   }

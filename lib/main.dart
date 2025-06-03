@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:meu_projeto/pages/views/cotacao_view.dart';
+import 'package:meu_projeto/pages/views/emprestimo_view.dart';
+import 'package:meu_projeto/pages/views/pix_view.dart';
+import 'package:meu_projeto/pages/views/transferencia_view.dart';
 import 'routes/app_routes.dart';
 import 'pages/login_page.dart';
 import 'pages/home_page.dart';
-import 'pages/cotacao_page.dart';
-import 'pages/transferencia_page.dart';
-import 'pages/monitoramento_page.dart';
-import 'pages/emprestimo_page.dart';
+import 'pages/pagar_boleto_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,10 +24,11 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.login: (context) => const LoginPage(),
         AppRoutes.home: (context) => const HomePage(),
-        AppRoutes.cotacao: (context) => const CotacaoPage(),
-        AppRoutes.transferencia: (context) => const TransferenciaPage(),
-        AppRoutes.monitoramento: (context) => const MonitoramentoPage(),
-        AppRoutes.emprestimo: (context) => const EmprestimoPage(),
+        AppRoutes.cotacao: (context) => const CotacaoView(),
+        AppRoutes.pagarBoleto: (context) => const PagarBoletoPage(),
+        AppRoutes.emprestimo: (context) => const EmprestimoView(),
+        AppRoutes.transferencia: (context) => const TransferenciaView(),
+        AppRoutes.pix: (context) => const PixView(),
       },
     );
   }

@@ -9,9 +9,9 @@ environment:
   sdk: ^3.7.2
 
 dependencies:
+  mobile_scanner: ^4.0.0
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.8
   http: ^0.13.0
   share_plus: ^7.2.1         # Plugin para compartilhamento
